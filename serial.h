@@ -1,9 +1,11 @@
 #pragma once
 #include "thruster.h"
+#include "Arduino.h"
 unsigned char switchCommandType(unsigned char package);
 unsigned char switchPackageType(unsigned char package);
 void processInPackage(unsigned char package);
 void serialInit();
+void serial_debug(const char * a);
 /*
 input1 input2
 0000xxxx 1nnnnnnn
