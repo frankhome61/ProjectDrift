@@ -24,7 +24,7 @@ There are two package types, all must be **ONE BYTE**.
   + Its last four digits are considered the id for the device
     + This can be modified later
 +  instrustion:
-+ + instruction is the package that contains the actual data to give the device
+  + Instruction is the package that contains the actual data to give the device
   + it MUST begin with 1. For example: 0b10000100
   + The last 7 digits are considered the data to be given to the device selected
 
@@ -35,17 +35,29 @@ By default, a null device is selected.
 It's written in the Serial.h:
 
 > input1 input2
+
 > 0000xxxx 1nnnnnnn
+
 > xxx:
+
 > 000 FORWARD_STARBOARD
+
 > 001 FORWARD_PORT
+
 > 010 BOW_STARBOARD
+
 > 011 BOW_PORT
+
 > 100 AFT_STARBOARD
+
 > 101 AFT_PORT
+
 > 110 TRANS_BOW
+
 > 111 TRANS_AFT
+
 > nnnnnnn:
+
 > 0-127 ->1500-128   1500+128
 
 
