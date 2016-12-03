@@ -1,13 +1,13 @@
 #include "thruster.h"
 Servo THRUSTERS[8];
-Servo&FORWARD_STARBOARD = THRUSTERS[0];
-Servo& FORWARD_PORT = THRUSTERS[1];
-Servo& BOW_STARBOARD = THRUSTERS[2];
-Servo& BOW_PORT = THRUSTERS[3];
-Servo& AFT_STARBOARD = THRUSTERS[4];
-Servo& AFT_PORT = THRUSTERS[5];
-Servo& TRANS_BOW = THRUSTERS[6];
-Servo& TRANS_AFT = THRUSTERS[7];
+Servo&FORWARD_STARBOARD = THRUSTERS[0];//右舷前
+Servo& FORWARD_PORT = THRUSTERS[1];//左舷前
+Servo& BOW_STARBOARD = THRUSTERS[2];//右前上下
+Servo& BOW_PORT = THRUSTERS[3];//左前上下
+Servo& AFT_STARBOARD = THRUSTERS[4];//右后上下
+Servo& AFT_PORT = THRUSTERS[5];//左后上下
+Servo& TRANS_BOW = THRUSTERS[6];//船头转弯
+Servo& TRANS_AFT = THRUSTERS[7];//船尾转弯
 //extern int lights[];
 void thrustersInit()
 {
