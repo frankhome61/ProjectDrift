@@ -14,7 +14,7 @@ class serial_builder():
         while True:
             self.__clock.acquire()
             #print 1
-            print(self.__dataBase)
+            #print(self.__dataBase)
             tmpstr = ''
             for i in self.__dataBase.keys():
                 tmpstr = self.__buildselector(i);
