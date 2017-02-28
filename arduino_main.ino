@@ -1,11 +1,12 @@
 #include "thruster.h"
 #include "serial.h"
-int lights[] = { 6,9,10,11 };
+#include <Servo.h>
+int lights[] = { 6,3,5,11 };
 void setup()
 {
 	serialInit();
-	thrustersInit();
-	thrusterTest();
+	//thrustersInit();
+	//thrusterTest();
 }
 void loop()
 {

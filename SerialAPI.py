@@ -1,5 +1,6 @@
 import threading
 import time
+import serial
 class serial_builder():
     __clock = threading.Lock()
     __dataBase = {}
@@ -7,21 +8,26 @@ class serial_builder():
         t1 = threading.Thread(target=self.sendSerialMessage,args=())
         t1.setDaemon(True)
         t1.start()
+        
     def sendSerialMessage(self):
+        t=serial.Serial('/dev/ttyACM1',9600)
         while True:
             self.__clock.acquire()
             #print 1
             print(self.__dataBase)
             tmpstr = ''
-            for i in range(len(self.__dataBase.keys())):
-                tmpstr = chr(self.__dataBase.keys()[i])
-                #print tmpstr
-                tmpstr = chr(self.__dataBase[self.__dataBase.keys()[i]])
-                #print tmpstr
+            for i in self.__dataBase.keys():
+                tmpstr = self.__buildselector(i);
+                t.write(tmpstr)
+                tmpstr = self.__builddata(self.__dataBase[i])
+                t.write(tmpstr)
             self.__clock.release()
             #print -1
             time.sleep(0.02)
-            
+    def __buildselector(self,deviceid):
+        return chr(deviceid|0b00000000)
+    def __builddata(self,data):
+        return chr(data|0b10000000)
     def changeData(self,key,value):
         self.__clock.acquire()
         if key > 15:
@@ -104,9 +110,13 @@ class Basicmovement():
         self.__thrusters['AFT_PORT'].setOffset(speed)
 if __name__ == '__main__':
     a = serial_builder()
-    T = Thruster(0,a)
+    T = Thruster(1,a)
+    T.setOffset(100)
+    time.sleep(2)
+    T.setOffset(0)
+    time.sleep(1)
     move = Basicmovement(a)
-    T.setOffset(10);
+    T.setOffset(55);
     time.sleep(1)
     T.setOffset(0)
     move.forward(32)

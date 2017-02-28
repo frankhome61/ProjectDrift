@@ -1,14 +1,14 @@
 #include "thruster.h"
 Servo THRUSTERS[8];
-Servo&FORWARD_STARBOARD = THRUSTERS[0];//сроог╟
-Servo& FORWARD_PORT = THRUSTERS[1];//вСоог╟
-Servo& BOW_STARBOARD = THRUSTERS[2];//срг╟иооб
-Servo& BOW_PORT = THRUSTERS[3];//вСг╟иооб
-Servo& AFT_STARBOARD = THRUSTERS[4];//ср╨Сиооб
-Servo& AFT_PORT = THRUSTERS[5];//вС╨Сиооб
-Servo& TRANS_BOW = THRUSTERS[6];//╢╛м╥в╙мД
-Servo& TRANS_AFT = THRUSTERS[7];//╢╛н╡в╙мД
-//extern int lights[];
+Servo&FORWARD_STARBOARD = THRUSTERS[0];//О©╫О©╫О©╫О©╫г╟
+Servo& FORWARD_PORT = THRUSTERS[1];//О©╫О©╫О©╫О©╫г╟
+Servo& BOW_STARBOARD = THRUSTERS[2];//О©╫О©╫г╟О©╫О©╫О©╫О©╫
+Servo& BOW_PORT = THRUSTERS[3];//О©╫О©╫г╟О©╫О©╫О©╫О©╫
+Servo& AFT_STARBOARD = THRUSTERS[4];//О©╫р╨О©╫О©╫О©╫О©╫О©╫
+Servo& AFT_PORT = THRUSTERS[5];//О©╫О©╫О©╫О©╫О©╫О©╫О©╫
+Servo& TRANS_BOW = THRUSTERS[6];//О©╫О©╫м╥в╙О©╫О©╫
+Servo& TRANS_AFT = THRUSTERS[7];//О©╫О©╫н╡в╙О©╫О©╫
+extern int lights[];
 void thrustersInit()
 {
 	for (int i = 0; i < 8; i++)
@@ -28,10 +28,9 @@ int getThrusterServoMs(unsigned char in_data)
 void sendThrusterSpeed(unsigned char selector, short speed1)
 {
 	//TTTTTTTTTTTTTTTTOOOOOOOOOOOOOOOODDDDDDDDDDDDDDDDDDDOOOOOOOOOOOOO
-	//speed1 -= 1500;
-	//speed1 /= 7;
-	//speed1 += 64;
-	//analogWrite(lights[selector], speed1);
+	//4debug!!!!!!!!!!!
+	analogWrite(lights[selector], (speed1-1500)/7+64);
+	//THRUSTERS[selector].writeMicroseconds(speed1);
 	return;
 }
 void thrusterTest()
