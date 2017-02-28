@@ -4,7 +4,7 @@
 
 This is the ELAC Robotics club project for RoboSub.
 
-It is (will be) written in C, C++, Python, Matlab.
+It is (will be) written in C, C++, Python.
 
 ## Documentation
 
@@ -19,14 +19,14 @@ Its Protocol has two goals: return the sensor results and control the thrusters 
 There are two package types, all must be **ONE BYTE**.
 
 +  Selector:
-  + Selector is the package that select a device to control
-  + it MUST begin with 0.  For example: 0b00000100
-  + Its last four digits are considered the id for the device
-    + This can be modified later
++  Selector is the package that select a device to control
+   + it MUST begin with 0.  For example: 0b00000100
+   + Its last four digits are considered the id for the device
+     + This can be modified later
 +  instrustion:
-  + Instruction is the package that contains the actual data to give the device
-  + it MUST begin with 1. For example: 0b10000100
-  + The last 7 digits are considered the data to be given to the device selected
+   + Instruction is the package that contains the actual data to give the device
+   + it MUST begin with 1. For example: 0b10000100
+   + The last 7 digits are considered the data to be given to the device selected
 
 By default, a null device is selected.
 
