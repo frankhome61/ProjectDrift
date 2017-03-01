@@ -1,14 +1,14 @@
 import xbox
-import SerialAPI
+#import SerialAPI
 # Format floating point number to string format -x.xxx
 def fmtFloat(n):
     return '{:6.3f}'.format(n)
     
 joy = xbox.Joystick()
-a = SerialAPI.serial_builder()
-T1 = SerialAPI.Thruster(1,a)
-T2 = SerialAPI.Thruster(0,a)
-T3 = SerialAPI.Thruster(2,a)   
+#a = SerialAPI.serial_builder()
+#T1 = SerialAPI.Thruster(1,a)
+#T2 = SerialAPI.Thruster(0,a)
+#T3 = SerialAPI.Thruster(2,a)   
 print "Xbox controller sample: Press Back button to exit"
 # Loop until back button is pressed
 while not joy.Back():
@@ -19,11 +19,11 @@ while not joy.Back():
         print "Disconnected",
     # Left analog stick
     print "Lx,Ly ",fmtFloat(joy.leftX()),fmtFloat(joy.leftY()),
-    T1.setOffset(int(joy.leftX()*128))
-    T2.setOffset(int(joy.leftY()*128))
+    #T1.setOffset(int(joy.leftX()*128))
+    #T2.setOffset(int(joy.leftY()*128))
     # Right trigger
     print "Rtrg ",fmtFloat(joy.rightTrigger()),
-    T3.setOffset(int(joy.rightTrigger()*128))
+    #T3.setOffset(int(joy.rightTrigger()*128))
     # A/B/X/Y buttons
     print "Buttons ",
     if joy.A():
