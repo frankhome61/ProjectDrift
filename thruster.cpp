@@ -29,8 +29,8 @@ void sendThrusterSpeed(unsigned char selector, short speed1)
 {
 	//TTTTTTTTTTTTTTTTOOOOOOOOOOOOOOOODDDDDDDDDDDDDDDDDDDOOOOOOOOOOOOO
 	//4debug!!!!!!!!!!!
-	analogWrite(lights[selector], (speed1-1500)/7+64);
-	//THRUSTERS[selector].writeMicroseconds(speed1);
+	//analogWrite(lights[selector], (speed1-1500)/7+64);
+	THRUSTERS[selector].writeMicroseconds(speed1);
 	return;
 }
 void thrusterTest()
